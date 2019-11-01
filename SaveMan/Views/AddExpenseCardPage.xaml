@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SaveMan;assembly=SaveMan"
+             x:Class="SaveMan.Views.AddExpenseCardPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,25,0,0"/>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+
+            <!--nav bar-->
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,40"
+                         AbsoluteLayout.LayoutFlags="WidthProportional"
+                         Orientation="Horizontal">
+                <Image Source="{local:ImageResource SaveMan.Images.back_icon48.png}" Aspect="AspectFit"
+                       Margin="10,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackButton_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="Add Transaction" FontSize="Title" TextColor="#757575"
+                       VerticalOptions="End"
+                       Margin="10,0,0,0"/>
+            </StackLayout>
+
+            <BoxView Color="#f0f0f0" HeightRequest="1" HorizontalOptions="Fill"
+                     AbsoluteLayout.LayoutBounds="0,40,1,1"
+                     AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <!--body page-->
+            <Grid AbsoluteLayout.LayoutBounds="0,0.5,1,0.79"
+                  AbsoluteLayout.LayoutFlags="YProportional,SizeProportional"
+                  Padding="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Source="{local:ImageResource SaveMan.Images.input_icon36.png}"
+                       Aspect="AspectFit" Scale="0.8"/>
+                <Entry Grid.Row="0" Grid.Column="1" HorizontalOptions="Fill" HeightRequest="30"
+                       Placeholder = "Pay / Income" FontSize="Body" x:Name="CostFilled"/>
+
+                <Image Grid.Row="1" Grid.Column="0" Source="{local:ImageResource SaveMan.Images.short_note_icon36.png}"
+                       Aspect="AspectFit" Scale="0.8"/>
+                <Entry Grid.Row="1" Grid.Column="1" HorizontalOptions="Fill" HeightRequest="30"
+                       Placeholder = "Short note" FontSize="Body" x:Name="NoteFilled"/>
+
+                <Image Grid.Row="2" Grid.Column="0" Source="{local:ImageResource SaveMan.Images.calendar_icon36.png}"
+                       Aspect="AspectFit" Scale="0.8"/>
+                <DatePicker Grid.Row="2" Grid.Column="1" HorizontalOptions="Fill"
+                            HeightRequest="30" x:Name="DateFilled" FontSize="Body"/>
+
+                <Image Grid.Row="3" Grid.Column="0" Source="{local:ImageResource SaveMan.Images.label_icon36.png}"
+                       Aspect="AspectFit" Scale="0.8"/>
+                <Entry Grid.Row="3" Grid.Column="1" HorizontalOptions="Fill" HeightRequest="30"
+                       Placeholder="Select Tag" x:Name="TagFilled" FontSize="Body" IsEnabled="False"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                       Text="Tag: " FontSize="Body" Margin="25,0,0,0"/>
+
+                <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                      x:Name="tagGrid" RowSpacing="2" ColumnSpacing="2">
+                    <AbsoluteLayout Grid.Row="0" Grid.Column="0">
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TagButton_Tapped"/>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <Image Source="{local:ImageResource SaveMan.Images.TagIcons.tag_1.png}"
+                               Aspect="AspectFit"
+                               AbsoluteLayout.LayoutBounds="0.5,0,0.85,0.85"
+                               AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"/>
+                        <Label Text="Food" FontSize="Small" HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="0.5,0.9"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout Grid.Row="0" Grid.Column="1">
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TagButton_Tapped"/>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <Image Source="{local:ImageResource SaveMan.Images.TagIcons.tag_2.png}"
+                               Aspect="AspectFit"
+                               AbsoluteLayout.LayoutBounds="0.5,0,0.85,0.85"
+                               AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"/>
+                        <Label Text="Transport" FontSize="Small" HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="0.5,0.9"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout Grid.Row="0" Grid.Column="2">
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TagButton_Tapped"/>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <Image Source="{local:ImageResource SaveMan.Images.TagIcons.tag_3.png}"
+                               Aspect="AspectFit"
+                               AbsoluteLayout.LayoutBounds="0.5,0,0.85,0.85"
+                               AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"/>
+                        <Label Text="Shopping" FontSize="Small" HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="0.5,0.9"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout Grid.Row="1" Grid.Column="0">
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TagButton_Tapped"/>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <Image Source="{local:ImageResource SaveMan.Images.TagIcons.tag_4.png}"
+                               Aspect="AspectFit"
+                               AbsoluteLayout.LayoutBounds="0.5,0,0.85,0.85"
+                               AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"/>
+                        <Label Text="Entertainment" FontSize="Small" HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="0.5,0.9"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout Grid.Row="1" Grid.Column="1">
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TagButton_Tapped"/>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <Image Source="{local:ImageResource SaveMan.Images.TagIcons.tag_5.png}"
+                               Aspect="AspectFit"
+                               AbsoluteLayout.LayoutBounds="0.5,0,0.85,0.85"
+                               AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"/>
+                        <Label Text="Travel" FontSize="Small" HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="0.5,0.9"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout Grid.Row="1" Grid.Column="2">
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TagButton_Tapped"/>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <Image Source="{local:ImageResource SaveMan.Images.TagIcons.tag_6.png}"
+                               Aspect="AspectFit"
+                               AbsoluteLayout.LayoutBounds="0.5,0,0.85,0.85"
+                               AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"/>
+                        <Label Text="Learning" FontSize="Small" HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="0.5,0.9"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout Grid.Row="2" Grid.Column="0">
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TagButton_Tapped"/>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <Image Source="{local:ImageResource SaveMan.Images.TagIcons.tag_7.png}"
+                               Aspect="AspectFit"
+                               AbsoluteLayout.LayoutBounds="0.5,0,0.85,0.85"
+                               AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"/>
+                        <Label Text="Home/Apartment" FontSize="Small" HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="0.5,0.9"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout Grid.Row="2" Grid.Column="1">
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TagButton_Tapped"/>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <Image Source="{local:ImageResource SaveMan.Images.TagIcons.tag_8.png}"
+                               Aspect="AspectFit"
+                               AbsoluteLayout.LayoutBounds="0.5,0,0.85,0.85"
+                               AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"/>
+                        <Label Text="Insurance" FontSize="Small" HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="0.5,0.9"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout Grid.Row="2" Grid.Column="2">
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TagButton_Tapped"/>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <Image Source="{local:ImageResource SaveMan.Images.TagIcons.tag_9.png}"
+                               Aspect="AspectFit"
+                               AbsoluteLayout.LayoutBounds="0.5,0,0.85,0.85"
+                               AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"/>
+                        <Label Text="Medical" FontSize="Small" HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="0.5,0.9"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+
+                    <AbsoluteLayout Grid.Row="3" Grid.Column="0">
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TagButton_Tapped"/>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <Image Source="{local:ImageResource SaveMan.Images.TagIcons.tag_10.png}"
+                               Aspect="AspectFit"
+                               AbsoluteLayout.LayoutBounds="0.5,0,0.85,0.85"
+                               AbsoluteLayout.LayoutFlags="XProportional,SizeProportional"/>
+                        <Label Text="Income" FontSize="Small" HorizontalOptions="Center"
+                               AbsoluteLayout.LayoutBounds="0.5,0.9"
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+                </Grid>
+            </Grid>
+
+            <!--foot page-->
+            <Frame HeightRequest="30" HorizontalOptions="Fill" BackgroundColor="#F7D749"
+                   CornerRadius="0" HasShadow="False"
+                   AbsoluteLayout.LayoutBounds="0,1,1,0.11"
+                   AbsoluteLayout.LayoutFlags="YProportional,SizeProportional">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AddButton_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Add" FontSize="Large" TextColor="#7B6855" HorizontalOptions="Center"
+                       VerticalOptions="Center" FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AddButton_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Frame>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+
+</ContentPage>

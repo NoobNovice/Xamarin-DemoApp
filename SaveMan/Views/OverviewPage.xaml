@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="SaveMan.Views.OverviewPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,25,0,0"/>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+
+            <!--Header Page-->
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,40"
+                         AbsoluteLayout.LayoutFlags="WidthProportional"
+                         Orientation="Horizontal">
+                <Label Text="Back" FontSize="Subtitle" TextColor="#757575"
+                       HorizontalOptions="Start"
+                       VerticalOptions="End"
+                       Margin="15,0,17,3">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackButton_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Overview" FontSize="Title" TextColor="#757575"
+                       HorizontalOptions="Start"
+                       VerticalOptions="End"
+                       Margin="0,0,0,3"/>
+            </StackLayout>
+
+            <BoxView Color="#f0f0f0" HeightRequest="1" HorizontalOptions="Fill"
+                     AbsoluteLayout.LayoutBounds="0,40,1,1"
+                     AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <!--Body Page-->
+            <Label Text="Income" FontSize="Large" FontAttributes="Bold"
+                   TextColor="#757575" AbsoluteLayout.LayoutBounds="0.23,0.10"
+                   AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            <Label Text="Outcome" FontSize="Large" FontAttributes="Bold"
+                   TextColor="#757575" AbsoluteLayout.LayoutBounds="0.23,0.15"
+                   AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            <Label Text="30000.00" FontSize="Large" HorizontalOptions="End"
+                   AbsoluteLayout.LayoutBounds="0.73,0.10" TextColor="#757575"
+                   AbsoluteLayout.LayoutFlags="PositionProportional" x:Name="incomeLabel"/>
+            <Label Text="-20000.00" FontSize="Large" HorizontalOptions="End"
+                   AbsoluteLayout.LayoutBounds="0.73,0.15" TextColor="#757575"
+                   AbsoluteLayout.LayoutFlags="PositionProportional" x:Name="outcomeLabel"/>
+
+            <Label Text="Payment summary" FontSize="Large" FontAttributes="Bold"
+                   TextColor="#757575" AbsoluteLayout.LayoutBounds="0.13,0.22"
+                   AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+            <Grid AbsoluteLayout.LayoutBounds="0,0.85,1,0.68"
+                  AbsoluteLayout.LayoutFlags="YProportional,SizeProportional"
+                  RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <microcharts:ChartView Chart="{Binding OverviewChart}" Grid.Row="0" Grid.ColumnSpan="4"
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10"/>
+
+                <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"
+                       FontSize="Body" TextColor="#757575" Text="" Margin="0,0,15,0" x:Name="percentFood"/>
+                <BoxView Grid.Row="1" Grid.Column="1" Color="#DF4E3B" WidthRequest="15" HeightRequest="15"
+                         HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="2" Text="Food" HorizontalOptions="Start" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" Margin="15,0,0,0"/>
+                <Label Grid.Row="1" Grid.Column="3" Text="0.00" HorizontalOptions="End" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" x:Name="costFood" Margin="0,0,36,0"/>
+
+                <Label Grid.Row="2" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"
+                       FontSize="Body" TextColor="#757575" Text="" Margin="0,0,15,0" x:Name="percentTransport"/>
+                <BoxView Grid.Row="2" Grid.Column="1" Color="#473786" WidthRequest="15" HeightRequest="15"
+                         HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Row="2" Grid.Column="2" Text="Transport" HorizontalOptions="Start" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" Margin="15,0,0,0"/>
+                <Label Grid.Row="2" Grid.Column="3" Text="0.00" HorizontalOptions="End" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" x:Name="costTransport" Margin="0,0,36,0"/>
+
+                <Label Grid.Row="3" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"
+                       FontSize="Body" TextColor="#757575" Text="" Margin="0,0,15,0" x:Name="percentShopping"/>
+                <BoxView Grid.Row="3" Grid.Column="1" Color="#409193" WidthRequest="15" HeightRequest="15"
+                         HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Row="3" Grid.Column="2" Text="Shopping" HorizontalOptions="Start" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" Margin="15,0,0,0"/>
+                <Label Grid.Row="3" Grid.Column="3" Text="0.00" HorizontalOptions="End" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" x:Name="costShopping" Margin="0,0,36,0"/>
+
+                <Label Grid.Row="4" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"
+                       FontSize="Body" TextColor="#757575" Text="" Margin="0,0,15,0" x:Name="percentEntertainment"/>
+                <BoxView Grid.Row="4" Grid.Column="1" Color="#E76939" WidthRequest="15" HeightRequest="15"
+                         HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Row="4" Grid.Column="2" Text="Entertainment" HorizontalOptions="Start" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" Margin="15,0,0,0"/>
+                <Label Grid.Row="4" Grid.Column="3" Text="0.00" HorizontalOptions="End" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" x:Name="costEntertainment" Margin="0,0,36,0"/>
+
+                <Label Grid.Row="5" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"
+                       FontSize="Body" TextColor="#757575" Text="" Margin="0,0,15,0" x:Name="percentTravel"/>
+                <BoxView Grid.Row="5" Grid.Column="1" Color="#230C3D" WidthRequest="15" HeightRequest="15"
+                         HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Row="5" Grid.Column="2" Text="Travel" HorizontalOptions="Start" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" Margin="15,0,0,0"/>
+                <Label Grid.Row="5" Grid.Column="3" Text="0.00" HorizontalOptions="End" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" x:Name="costTravel" Margin="0,0,36,0"/>
+
+                <Label Grid.Row="6" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"
+                       FontSize="Body" TextColor="#757575" Text="" Margin="0,0,15,0" x:Name="percentLearning"/>
+                <BoxView Grid.Row="6" Grid.Column="1" Color="#4CA55F" WidthRequest="15" HeightRequest="15"
+                         HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Row="6" Grid.Column="2" Text="Learing" HorizontalOptions="Start" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" Margin="15,0,0,0"/>
+                <Label Grid.Row="6" Grid.Column="3" Text="0.00" HorizontalOptions="End" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" x:Name="costLearning" Margin="0,0,36,0"/>
+
+                <Label Grid.Row="7" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"
+                       FontSize="Body" TextColor="#757575" Text="" Margin="0,0,15,0" x:Name="percentHome"/>
+                <BoxView Grid.Row="7" Grid.Column="1" Color="#E2903D" WidthRequest="15" HeightRequest="15"
+                         HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Row="7" Grid.Column="2" Text="Home/Apartment" HorizontalOptions="Start" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" Margin="15,0,0,0"/>
+                <Label Grid.Row="7" Grid.Column="3" Text="0.00" HorizontalOptions="End" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" x:Name="costHome" Margin="0,0,36,0"/>
+
+                <Label Grid.Row="8" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"
+                       FontSize="Body" TextColor="#757575" Text="" Margin="0,0,15,0" x:Name="percentInsurance"/>
+                <BoxView Grid.Row="8" Grid.Column="1" Color="#973470" WidthRequest="15" HeightRequest="15"
+                         HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Row="8" Grid.Column="2" Text="Insurance" HorizontalOptions="Start" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" Margin="15,0,0,0"/>
+                <Label Grid.Row="8" Grid.Column="3" Text="0.00" HorizontalOptions="End" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" x:Name="costInsurance" Margin="0,0,36,0"/>
+
+                <Label Grid.Row="9" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"
+                       FontSize="Body" TextColor="#757575" Text="" Margin="0,0,15,0" x:Name="percentMedical"/>
+                <BoxView Grid.Row="9" Grid.Column="1" Color="#9FBB57" WidthRequest="15" HeightRequest="15"
+                         HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Grid.Row="9" Grid.Column="2" Text="Medical" HorizontalOptions="Start" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" Margin="15,0,0,0"/>
+                <Label Grid.Row="9" Grid.Column="3" Text="0.00" HorizontalOptions="End" VerticalOptions="Center"
+                       TextColor="#757575" FontSize="Body" x:Name="costMedical" Margin="0,0,36,0"/>
+            </Grid>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+
+</ContentPage>

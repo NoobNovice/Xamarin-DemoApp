@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SaveMan.Views.ExpensePage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,25,0,0"/>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+
+            <!--Header Page-->
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,40"
+                         AbsoluteLayout.LayoutFlags="WidthProportional"
+                         Orientation="Horizontal">
+                <Label Text="Expense" FontSize="Title" TextColor="#757575"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="End"
+                       Margin="14,0,0,3">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ClearData_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Add" FontSize="Subtitle" TextColor="#757575"
+                       HorizontalOptions="End"
+                       VerticalOptions="End"
+                       Margin="0,0,15,3">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AddButton_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <BoxView Color="#f0f0f0" HeightRequest="1" HorizontalOptions="Fill"
+                     AbsoluteLayout.LayoutBounds="0,41,1,1"
+                     AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                         AbsoluteLayout.LayoutBounds="0,50,1,40"
+                         AbsoluteLayout.LayoutFlags="WidthProportional"
+                         Padding="25,0,0,0">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OverViewButton_Tapped"/>
+                </StackLayout.GestureRecognizers>
+
+                <Label Text="Balance: 10000.00" TextColor="#757575" x:Name="BalanceLabel"/>
+                <Label Text="Tap to view report  >" TextColor="#757575" FontSize="Small"
+                       Margin="8,0,0,0" VerticalOptions="End"/>
+            </StackLayout>
+
+            <!--Body Page-->
+            <ScrollView AbsoluteLayout.LayoutBounds="0,90,1,0.89"
+                        AbsoluteLayout.LayoutFlags="SizeProportional">
+                <StackLayout x:Name="bodyPage">
+
+                </StackLayout>
+            </ScrollView>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+
+</ContentPage>

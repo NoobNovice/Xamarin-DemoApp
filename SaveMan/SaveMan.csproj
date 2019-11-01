@@ -1,0 +1,84 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.815419" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
+    <PackageReference Include="Microcharts.Forms" Version="0.7.1" />
+    <PackageReference Include="Microcharts" Version="0.7.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Models\" />
+    <Folder Include="Images\" />
+    <Folder Include="Images\TagIcons\" />
+    <Folder Include="Dictionary\" />
+    <Folder Include="Database\" />
+    <Folder Include="Setting\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Images\back_icon48.png" />
+    <None Remove="Images\calendar_icon36.png" />
+    <None Remove="Images\input_icon36.png" />
+    <None Remove="Images\settings_icon48.png" />
+    <None Remove="Images\short_note_icon36.png" />
+    <None Remove="Images\wallet_icon36.png" />
+    <None Remove="Images\label_icon36.png" />
+    <None Remove="Images\triangle36.png" />
+    <None Remove="Images\triangle_up36.png" />
+    <None Remove="Images\triangle_down36.png" />
+    <None Remove="Images\income_icon.png" />
+    <None Remove="Images\medical_icon.png" />
+    <None Remove="Images\hospital_icon.png" />
+    <None Remove="Images\shopping_icon.png" />
+    <None Remove="Images\learning_icon.png" />
+    <None Remove="Images\entertainment_icon.png" />
+    <None Remove="Images\TagIcons\hospital_icon.png" />
+    <None Remove="Images\TagIcons\income_icon.png" />
+    <None Remove="Images\TagIcons\learning_icon.png" />
+    <None Remove="Images\TagIcons\entertainment_icon.png" />
+    <None Remove="Images\TagIcons\shopping_icon.png" />
+    <None Remove="Images\TagIcons\insurance_icon.png" />
+    <None Remove="Images\TagIcons\traveling_icon.png" />
+    <None Remove="Images\TagIcons\apartment_icon.png" />
+    <None Remove="Images\TagIcons\food_icon.png" />
+    <None Remove="Images\TagIcons\tag_5.png" />
+    <None Remove="Images\close_icon24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\back_icon48.png" />
+    <EmbeddedResource Include="Images\calendar_icon36.png" />
+    <EmbeddedResource Include="Images\input_icon36.png" />
+    <EmbeddedResource Include="Images\settings_icon48.png" />
+    <EmbeddedResource Include="Images\short_note_icon36.png" />
+    <EmbeddedResource Include="Images\wallet_icon36.png" />
+    <EmbeddedResource Include="Images\label_icon36.png" />
+    <EmbeddedResource Include="Images\triangle_up36.png" />
+    <EmbeddedResource Include="Images\triangle_down36.png">
+      <LogicalName>SaveMan.Images.triangle36.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\TagIcons\tag_9.png" />
+    <EmbeddedResource Include="Images\TagIcons\tag_10.png" />
+    <EmbeddedResource Include="Images\TagIcons\tag_6.png" />
+    <EmbeddedResource Include="Images\TagIcons\tag_4.png" />
+    <EmbeddedResource Include="Images\TagIcons\tag_3.png" />
+    <EmbeddedResource Include="Images\TagIcons\tag_8.png" />
+    <EmbeddedResource Include="Images\TagIcons\tag_2.png" />
+    <EmbeddedResource Include="Images\TagIcons\tag_7.png" />
+    <EmbeddedResource Include="Images\TagIcons\tag_1.png" />
+    <EmbeddedResource Include="Images\TagIcons\tag_5.png" />
+    <EmbeddedResource Include="Images\close_icon24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Images\triangle_down36.png">
+      <LogicalName>SaveMan.Images.triangle36.png</LogicalName>
+    </None>
+  </ItemGroup>
+</Project>

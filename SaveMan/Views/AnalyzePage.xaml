@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="SaveMan.Views.AnalyzePage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,25,0,0"/>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+
+            <!--Header Page-->
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,40"
+                         AbsoluteLayout.LayoutFlags="WidthProportional"
+                         Orientation="Horizontal">
+                <Label Text="Analaze" FontSize="Title" TextColor="#757575"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="End"
+                       Margin="14,0,0,3"/>
+            </StackLayout>
+
+            <BoxView Color="#f0f0f0" HeightRequest="1" HorizontalOptions="Fill"
+                     AbsoluteLayout.LayoutBounds="0,41,1,1"
+                     AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <!--Body Page-->
+            <ScrollView AbsoluteLayout.LayoutBounds="0,42,1,0.95"
+                        AbsoluteLayout.LayoutFlags="SizeProportional"
+                        Padding="12">
+                <StackLayout Spacing="25">
+
+                    <!--Saving-->
+                    <Frame HasShadow="False" BorderColor="#f0f0f0" BackgroundColor="#fefefe">
+                        <StackLayout>
+
+                            <Label Text="Saving per mount" FontSize="Large"
+                                    TextColor="#757575" FontAttributes="Bold"/>
+                            <microcharts:ChartView Chart="{Binding SavingChart}" HeightRequest="200"
+                                                   HorizontalOptions="Fill"/>
+                            <BoxView HeightRequest="1" Color="#f0f0f0" HorizontalOptions="Fill"/>
+
+                            <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="8"/>
+                                <ColumnDefinition Width="120"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Text="Average income"
+                                   TextColor="#757575" FontSize="Small" HorizontalOptions="Start"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text=":"
+                                   TextColor="#757575" FontSize="Small" HorizontalOptions="Center"/>
+                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding IncomeAvg}"
+                                   TextColor="#757575" FontSize="Small" HorizontalOptions="End"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" Text="Average outcome"
+                                   TextColor="#757575" FontSize="Small" HorizontalOptions="Start"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text=":"
+                                   TextColor="#757575" FontSize="Small" HorizontalOptions="Center"/>
+                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding OutcomeAvg}"
+                                   TextColor="#757575" FontSize="Small" HorizontalOptions="End"/>
+                            </Grid>           
+                                             
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Food-->
+                    <Frame HasShadow="False" BorderColor="#f0f0f0" BackgroundColor="#fefefe">
+                        <StackLayout>
+                            <Label Text="Food Trend" FontSize="Large"
+                                    TextColor="#757575" FontAttributes="Bold"/>
+                            <microcharts:ChartView Chart="{Binding FoodChart}" HeightRequest="200"
+                                                   HorizontalOptions="Fill"/>
+                            <BoxView HeightRequest="1" Color="#f0f0f0" HorizontalOptions="Fill"/>
+
+                            <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="8"/>
+                                <ColumnDefinition Width="120"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Text="Average cost"
+                                    TextColor="#757575" FontSize="Small" HorizontalOptions="Start"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text=":"
+                                    TextColor="#757575" FontSize="Small" HorizontalOptions="Center"/>
+                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding FoodAvg}"
+                                    TextColor="#757575" FontSize="Small" HorizontalOptions="End"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Transport-->
+                    <Frame HasShadow="False" BorderColor="#f0f0f0" BackgroundColor="#fefefe">
+                        <StackLayout>
+                            <Label Text="Transport Trend" FontSize="Large"
+                                    TextColor="#757575" FontAttributes="Bold"/>
+                            <microcharts:ChartView Chart="{Binding TransportChart}" HeightRequest="200"
+                                                   HorizontalOptions="Fill"/>
+                            <BoxView HeightRequest="1" Color="#f0f0f0" HorizontalOptions="Fill"/>
+
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="8"/>
+                                    <ColumnDefinition Width="120"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="Average cost"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="Start"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text=":"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="Center"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding TransportAvg}"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="End"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Shopping-->
+                    <Frame HasShadow="False" BorderColor="#f0f0f0" BackgroundColor="#fefefe">
+                        <StackLayout>
+                            <Label Text="Shopping Trend" FontSize="Large"
+                                    TextColor="#757575" FontAttributes="Bold"/>
+                            <microcharts:ChartView Chart="{Binding ShoppingChart}" HeightRequest="200"
+                                                   HorizontalOptions="Fill"/>
+                            <BoxView HeightRequest="1" Color="#f0f0f0" HorizontalOptions="Fill"/>
+                                                
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="8"/>
+                                    <ColumnDefinition Width="120"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="Average cost"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="Start"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text=":"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="Center"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding ShoppingAvg}"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="End"/>
+                            </Grid>
+                    </StackLayout>
+                    </Frame>
+
+                    <!--Entertainment-->
+                    <Frame HasShadow="False" BorderColor="#f0f0f0" BackgroundColor="#fefefe">
+                        <StackLayout>
+                            <Label Text="Entertainment Trend" FontSize="Large"
+                                    TextColor="#757575" FontAttributes="Bold"/>
+                            <microcharts:ChartView Chart="{Binding EntertainmentChart}" HeightRequest="200"
+                                                   HorizontalOptions="Fill"/>
+                            <BoxView HeightRequest="1" Color="#f0f0f0" HorizontalOptions="Fill"/>
+
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="8"/>
+                                    <ColumnDefinition Width="120"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="Average cost"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="Start"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text=":"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="Center"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding EntertainmentAvg}"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="End"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Travel-->
+                    <Frame HasShadow="False" BorderColor="#f0f0f0" BackgroundColor="#fefefe">
+                        <StackLayout>
+                            <Label Text="Travel Trend" FontSize="Large"
+                                    TextColor="#757575" FontAttributes="Bold"/>
+                            <microcharts:ChartView Chart="{Binding TravelChart}" HeightRequest="200"
+                                                   HorizontalOptions="Fill"/>
+                            <BoxView HeightRequest="1" Color="#f0f0f0" HorizontalOptions="Fill"/>
+
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="8"/>
+                                    <ColumnDefinition Width="120"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="Average cost"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="Start"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text=":"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="Center"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding TravelAvg}"
+                                        TextColor="#757575" FontSize="Small" HorizontalOptions="End"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+
+</ContentPage>

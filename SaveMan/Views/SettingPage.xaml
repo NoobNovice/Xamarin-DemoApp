@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SaveMan;assembly=SaveMan"
+             x:Class="SaveMan.Views.SettingPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,25,0,0"/>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <!--Header Page-->
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,40"
+                         AbsoluteLayout.LayoutFlags="WidthProportional"
+                         Orientation="Horizontal">
+                <Image Source="{local:ImageResource SaveMan.Images.back_icon48.png}" Aspect="AspectFit"
+                       Margin="10,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackButton_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="Setting" FontSize="Title" TextColor="#757575"
+                       VerticalOptions="End"
+                       Margin="10,0,0,0"/>
+            </StackLayout>
+
+            <BoxView Color="#f0f0f0" HeightRequest="1" HorizontalOptions="Fill"
+                     AbsoluteLayout.LayoutBounds="0,41,1,1"
+                     AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+            <!--Body Page-->
+            <ListView AbsoluteLayout.LayoutBounds="0,42,1,0.94"
+                      AbsoluteLayout.LayoutFlags="SizeProportional"
+                      ItemsSource="{Binding SettingLabel}"
+                      SeparatorVisibility="None" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding .}" FontSize="Subtitle"
+                                   TextColor="#757575" Margin="20,12,0,12">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="LabelButton_Tapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+
+</ContentPage>
